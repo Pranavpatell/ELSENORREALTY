@@ -93,10 +93,18 @@
     object-fit: contain;
     filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)); /* Soft shadow for contrast */
 }
+body {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
 
+body.fade-in {
+  opacity: 1;
+}
     </style>
 </head>
 <body>
+
 
 <!-- Slider Container -->
 <div class="swiper">
@@ -133,6 +141,10 @@
         pagination: { el: '.swiper-pagination', clickable: true },
         navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
     });
+    window.addEventListener('load', () => {
+  document.body.classList.add('fade-in');
+});
+
 </script>
 
 </body>
