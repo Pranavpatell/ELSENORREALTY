@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="shortcut icon" href="EL-removebg-preview.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Parisienne&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Él Señor Realty</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1c2120; /* Onyx Black */
+        }
+        .swiper {
+            width: 100%;
+            height: 70vh;
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+        }
+        .swiper-slide {
+    position: relative;
+}
+
+.swiper-slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* black with 40% opacity */
+    z-index: 1; /* above image, below text */
+}
+.swiper-slide {
+    position: relative;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text styling */
+.slide-text {
+    position: absolute;
+    z-index: 2; /* Above overlay */
+    color: #d3a84c; /* Gold */
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: #FFD700; /* Gold */
+    font-size: 2.5rem;
+    font-family: 'Montserrat';
+    font-weight: lighter;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    white-space: nowrap;
+}
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10; /* Above everything */
+}
+
+.logo img {
+    height: 20vh; /* Adjust size */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)); /* Soft shadow for contrast */
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Slider Container -->
+<div class="swiper">
+       <div class="logo">
+    <img src="EL-removebg-preview.png" alt="El Señor Realty Logo">
+</div>
+ <div class="slide-text" translate="no">Él Señor Realty
+                <br>
+                Making lives easier
+                
+            </div>
+    <div class="swiper-wrapper">
+
+     
+        <div class="swiper-slide">
+        
+            <img src="I-1.jpg" alt="Project 1">
+            
+        </div>
+        <div class="swiper-slide"><img src="I-2.jpg" alt="Project 2"></div>
+        <div class="swiper-slide"><img src="I-3.jpg" alt="Project 3"></div>
+    </div>
+    <!-- Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        autoplay: { delay: 3000 },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+    });
+</script>
+
+</body>
+</html>
