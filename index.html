@@ -1,249 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="shortcut icon" href="EL-removebg-preview.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Parisienne&display=swap" rel="stylesheet">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Él Señor Realty</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #1c2120; /* Onyx Black */
-        }
-        .swiper {
-            width: 100%;
-            height: 70vh;
-        }
-        .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-size: cover;
-            background-position: center;
-        }
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            
-        }
-        .swiper-slide {
-    position: relative;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Él Señor Realty</title>
 
-.swiper-slide::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* black with 40% opacity */
-    z-index: 1; /* above image, below text */
-}
-.swiper-slide {
-    position: relative;
-}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&family=Parisienne&display=swap"
+    rel="stylesheet"
+  />
 
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-/* Text styling */
-.slide-text {
-    position: absolute;
-    z-index: 2; /* Above overlay */
-    color: #d3a84c; /* Gold */
-    font-size: 2.5rem;
-    font-family: 'Montserrat', sans-serif;
-     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    color: #d3a84c; /* Gold */
-    font-size: 2.5rem;
-    font-family: 'Montserrat';
-    font-weight: lighter;
-    text-align: center;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    white-space: nowrap;
-}
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 10; /* Above everything */
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #1c2120; /* Onyx Black */
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      font-family: 'Montserrat';
+      color: #d3a84c;
+    }
+    body.fade-in {
+      opacity: 1;
+    }
 
-.logo img {
-    height: 20vh; /* Adjust size */
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)); /* Soft shadow for contrast */
-}
-body {
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
-}
+    /* Swiper */
+    .swiper {
+      width: 100%;
+      height: 70vh;
+      position: relative;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .swiper-slide::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-body.fade-in {
-  opacity: 1;
-}
-.vision{
-  width: 100%;
-  height: 40vh;
-  text-overflow: hidden;
-  overflow: hidden;
-  display: flex;
-  /* border: 1px gold solid; */
-}
-t{
-    font-size: 3rem;
-    color: gold; /* Gold */
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    font-weight: Bold;
-    margin-bottom: 1rem;
+    /* Logo */
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+    .logo img {
+      height: 20vh;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+    }
 
-}
-p{
-    /* border: 1px solid gold; */
-    width: 80%;
+    /* Slide Text */
+    .slide-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      color: #d3a84c;
+      font-size: 2.5rem;
+      font-weight: lighter;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      white-space: nowrap;
+    }
 
-  font-size: 1.5rem;
-  color: #d3a84c; /* Gold */
-  font-family: 'Montserrat';
-  text-align: left;
-  margin-bottom: 1rem;
-}
-.vision-image
-{
-  width: 70vh;
-  height: 40vh;
-  align-items: left;
-  margin-left: auto;
-  margin-right: 7vh;
-  /* border: 1px solid #d3a84c; */
-  
-}
-.who-we-are{
-    width: 100%;
-    height: 70vh;
-    display: flex;
-    /* border: 1px solid gold; */
-}
-.who-we-are-title{
-    font-size: 3rem;
-    color: gold; /* Gold */
-    font-family: 'Montserrat', sans-serif;
-    padding-left: 110vh;
-    text-align: right;
-    font-weight: Bold;
-    margin-bottom: 1rem;
-}
-.who-we-are-description{
-    font-size: 1.5rem;
-    color: #d3a84c; /* Gold */
-    font-family: 'Montserrat';
-    text-align: right;
-    padding-left: 30vh;
-    margin-bottom: 1rem;
-    height: 40vh;
-    
-}
-.img-container{
+    /* Vision Section */
+    .vision {
+      display: flex;
+      align-items: center;
+      /* padding: 0 5vw; */
+      height: 40vh;
+      gap: 2rem;
+      font-family: 'Montserrat',sans-serif;
+      box-sizing: border-box;
+    }
+    .vision t {
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      flex: 1;
+    }
+    .vision p {
+      font-size: 1.5rem;
+      text-align: left;
+      flex: 2;
+      margin: 0;
+    }
+    .vision-image {
+      width: 70vh;
+      height: 40vh;
+      object-fit: contain;
+      margin-left: auto;
+    }
+
+    /* WHO WE ARE Section */
+    .who-we-are {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 15px;
+      font-family: 'Montserrat',sans-serif;
+
+      gap: 3rem;
+      flex-wrap: wrap;
+      height: 70vh;
+      box-sizing: border-box;
+    }
+    .img-container {
+      flex: 0 0 47vh;
       height: 47vh;
-}
-    </style>
+    }
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .containerA {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: right;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    .who-we-are-title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .who-we-are-description {
+      font-size: 1.5rem;
+      height: 40vh;
+      overflow-y: auto;
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .who-we-are {
+        justify-content: center;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 5vw;
+      }
+      .img-container {
+        flex: none;
+        width: 80vw;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      .img-container img {
+        height: auto;
+      }
+      .containerA {
+        text-align: center;
+        height: auto;
+      }
+      .who-we-are-title {
+        font-size: 2.2rem;
+      }
+      .who-we-are-description {
+        font-size: 1.2rem;
+        height: auto;
+      }
+      .vision {
+        flex-direction: column;
+        height: auto;
+      }
+      .vision t {
+        margin-bottom: 0.5rem;
+      }
+      .vision p {
+        text-align: center;
+        font-size: 1.2rem;
+      }
+      .vision-image {
+        width: 80vw;
+        height: auto;
+        margin: 1rem 0 0 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .who-we-are-title {
+        font-size: 1.8rem;
+      }
+      .who-we-are-description {
+        font-size: 1rem;
+      }
+      .vision t,
+      .vision p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-
-
-<!-- Slider Container -->
-<div class="swiper">
-       <div class="logo">
-    <img src="EL-removebg-preview.png" alt="El Señor Realty Logo">
-</div>
- <div class="slide-text" translate="no">Él Señor Realty
-                <br>
-                Making lives easier
-                
-            </div>
+  <!-- Slider Container -->
+  <div class="swiper">
+    <div class="logo">
+      <img src="EL-removebg-preview.png" alt="El Señor Realty Logo" />
+    </div>
+    <div class="slide-text" translate="no">
+      Él Señor Realty<br />
+      Making lives easier
+    </div>
     <div class="swiper-wrapper">
-
-     
-        <div class="swiper-slide">
-        
-            <img src="I-1.jpg" alt="Project 1">
-            
-        </div>
-        <div class="swiper-slide"><img src="I-2.jpg" alt="Project 2"></div>
-        <div class="swiper-slide"><img src="I-3.jpg" alt="Project 3"></div>
+      <div class="swiper-slide">
+        <img src="I-1.jpg" alt="Project 1" />
+      </div>
+      <div class="swiper-slide">
+        <img src="I-2.jpg" alt="Project 2" />
+      </div>
+      <div class="swiper-slide">
+        <img src="I-3.jpg" alt="Project 3" />
+      </div>
     </div>
     <!-- Navigation -->
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
+  </div>
 
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="vision">
-  <div class="container">
-  <t class="vision-1">OUR VISION</t>
-  <p class="vision-p1">At Él Señor Realty, we dare to dream beyond bricks and mortar.
-We envision a world where homes are not just shelters but sanctuaries — affordable, elegant, and inspired by the timeless grace of Greek and Indian architecture.
-Our mission is to craft living spaces that blend culture with comfort, tradition with innovation, turning every house into a throne where families reign.
-Because true success is building legacies that stand the test of time — and that’s the empire we’re destined to create.</p>
-</div>
-  <img src="eye-icon-front-side-with-white-background-removebg-preview.png" alt="Vision Image" class="vision-image">
+  <br /><br /><br /><br /><br /><br /><br /><br />
 
-</div>
-<br>
-<br>
-<div class="who-we-are">
-    <div class="img-container">
-        <img src="EL-removebg-preview.png" alt="" srcset="" class="img-container">
+  <div class="vision">
+    <div class="vision-wrapper">
+    <t>OUR VISION</t>
+    <p>
+      At Él Señor Realty, we dare to dream beyond bricks and mortar. We
+      envision a world where homes are not just shelters but sanctuaries —
+      affordable, elegant, and inspired by the timeless grace of Greek and Indian
+      architecture. Our mission is to craft living spaces that blend culture
+      with comfort, tradition with innovation, turning every house into a throne
+      where families reign. Because true success is building legacies that stand
+      the test of time — and that’s the empire we’re destined to create.
+    </p>
     </div>
-    <div class="container">
-    <t class="who-we-are-title">WHO WE ARE?</t>
-    <p class="who-we-are-description">At Él Señor Realty, we’re more than a company — we’re visionaries shaping homes that blend heritage with innovation. We create sustainable, elegant sanctuaries where families grow, thrive, and build lasting memories. Our mission is to empower you to find not just a house, but a future — because here, we don’t just sell properties, we build legacies.</p>
-</div>
-</div>
+    <img
+      src="eye-icon-front-side-with-white-background-removebg-preview.png"
+      alt="Vision Image"
+      class="vision-image"
+    />
 
-</div>
+  </div>
 
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
+  <br /><br />
+
+  <div class="who-we-are">
+    <div class="img-container">
+      <img src="EL-removebg-preview.png" alt="El Señor Realty Logo" />
+    </div>
+    <div class="containerA">
+      <t class="who-we-are-title">WHO WE ARE?</t>
+      <p class="who-we-are-description">
+        At Él Señor Realty, we’re more than a company — we’re visionaries shaping
+        homes that blend heritage with innovation. We create sustainable,
+        elegant sanctuaries where families grow, thrive, and build lasting
+        memories. Our mission is to empower you to find not just a house, but a
+        future — because here, we don’t just sell properties, we build legacies.
+      </p>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
     const swiper = new Swiper('.swiper', {
-        loop: true,
-        autoplay: { delay: 3000 },
-        pagination: { el: '.swiper-pagination', clickable: true },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+      loop: true,
+      autoplay: { delay: 3000 },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     });
+
     window.addEventListener('load', () => {
-  document.body.classList.add('fade-in');
-});
-
-</script>
-
+      document.body.classList.add('fade-in');
+    });
+  </script>
 </body>
 </html>
